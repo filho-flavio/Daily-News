@@ -1,0 +1,51 @@
+.box-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 100%;
+    height: 90%;
+    gap: 1em;
+}
+
+.imgs{
+    width: 58%;
+    display: block;
+}
+
+h2{
+    font-weight: bold;
+}
+
+small{
+    border-top: 1px solid #000;
+    text-align: right;
+}
+.contents {
+    width: 40%;
+    max-width: 80%;
+    padding: 1em;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    gap: 4%;
+}
+
+.box-more-news{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 940px){
+    .imgs{
+        width: 100%;
+        height: 65%;
+    }
+    .contents{
+        width: 100%;
+        height: 30%;
+    }
+    .box-more-news{
+        display: none;
+    }
+}
