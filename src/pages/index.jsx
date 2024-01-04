@@ -1,42 +1,8 @@
 import React from "react";
-import { CardNews } from "../components/Card";
-import { v4 as uuidv4 } from 'uuid';
-import { useState, useEffect } from "react";
 import "./index.css"
+import { SlideBar } from "../components/SlideBar";
 
 export function PageIndex() {
-  const URL = "https://newsapi.org/v2/everything?q=tesla&from=2023-12-02&sortBy=publishedAt&apiKey=515c246f58d64eafb15c1ae8d6801fa5";
-
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(URL);
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await res.json();
-        console.log(data.articles)
-        const updatedNews = data.articles.map(article => ({
-          id: uuidv4(),
-          title: article.title,
-          description: article.description,
-          urlToImage: article.urlToImage,
-          author: article.author,
-          publishedAt: `${article.publishedAt.split('T')[0]}`,
-        }));
-
-        setNews(prevState => [...prevState, ...updatedNews]);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
 
   return (
     <div className='container'>
@@ -59,26 +25,10 @@ export function PageIndex() {
 
       <main className='main'>
         <section className='main-box-1'>
-          <img src="/public/arrow-black-left.png" className="img-skipNews" alt="" />
-          {/* {
-            news.map((item) => 
-              <CardNews
-                key={item.id}
-                urlToImage={item.urlToImage}
-                title={item.title}
-                description={item.description}
-                author={item.author}
-                publishedAt={item.publishedAt}
-              />
-            )} */}
+          <img src="/public/arrow-black-left.png" id="return" className="img-skipNews" alt=""/>
 
-          <CardNews
-            urlToImage={"https://www.marketscreener.com/images/twitter_MS_fdnoir.png"}
-            title={"More EVs lose US tax credits including Tesla Cybertruck, Nissan Leaf"}
-            description={"Politiet og dommeren ville straffe Linni Celine Krieg for å ha satt sønnens liv i fare. 28-åringen ble overrasket over hvem som reddet henne i retten."}
-            author={"Lorem ipsum"}
-            publishedAt={"3 hours ago"}
-          />
+          <SlideBar />
+         
           <img src="/public/arrow-black.png" className="img-skipNews" alt="" />
         </section>
         <section id='news' className='main-box-2'>

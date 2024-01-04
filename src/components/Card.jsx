@@ -1,10 +1,10 @@
 import React from "react";
 import "./Card.css"
 
-export function CardNews({ urlToImage, title, description, author, publishedAt }) {
+export function CardNews({ urlToImage, title, description, author, publishedAt, key }) {
     return (
         <>
-            <div className="box-container">
+            <div className="box-container" id="" key={key}>
                 <img className="imgs" src={urlToImage} alt="" />
                 <div className="contents">
                     <h2>{title}</h2>
